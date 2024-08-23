@@ -52,10 +52,7 @@ class LsTask {
     let secureStoreCliCommon = await SecureStoreCliCommon.init(options.file);
     let secureStoreCnt = await secureStoreCliCommon.readSecureStore();
     let res = Object.keys(secureStoreCnt).filter(uid => secureStoreCnt[uid]).map(uid => {
-      if (secureStoreCnt[uid].oidcServer) {
-        return `${uid} - ${secureStoreCnt[uid].oidcServer}`;
-      }
-      return uid;
+      return  uid + " AC1: " + secureStoreCnt[uid].ac1 + " AC2: " + secureStoreCnt[uid].ac2;
     }).join("\n");
     console.log(res);
   }
